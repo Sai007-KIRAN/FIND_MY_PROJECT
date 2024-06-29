@@ -19,7 +19,7 @@ public class Project {
     private double budget;
 
     @ManyToMany
-    @JoinTable(name = "researcher_project", joinColumns = @JoinColumn(name = "projectId"), inverseJoinColumns = @JoinColumn(name = "researcherId"))
+    @JoinTable(name = "researcher_project", joinColumns = @JoinColumn(name = "projectid"), inverseJoinColumns = @JoinColumn(name = "researcherid"))
     @JsonIgnoreProperties("projects")
     private List<Researcher> researchers;
 
