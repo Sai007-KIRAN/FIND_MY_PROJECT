@@ -12,33 +12,33 @@ public class ProjectController {
     @Autowired
     private ProjectJpaService pjs;
 
-    @GetMapping("/researchers")
+    @GetMapping("/researchers/projects")
     public ArrayList<Project> getProject() {
         return pjs.getProject();
     }
 
-    @GetMapping("/researchers/{researcherId}")
-    public Project getProjectById(@PathVariable("researcherId") int projectId) {
+    @GetMapping("/researchers/projects/{projectId}")
+    public Project getProjectById(@PathVariable("projectId") int projectId) {
         return pjs.getProjectById(projectId);
     }
 
-    @PostMapping("/researchers")
+    @PostMapping("/researchers/projects")
     public Project addProject(@RequestBody Project project) {
         return pjs.addProject(project);
     }
 
-    @PutMapping("/researchers/{researcherId}")
-    public Project updateProject(@PathVariable("researcherId") int projectId, @RequestBody Project project) {
+    @PutMapping("/researchers/projects/{projectId}")
+    public Project updateProject(@PathVariable("projectId") int projectId, @RequestBody Project project) {
         return pjs.updateProject(projectId, project);
     }
 
-    @DeleteMapping("/researchers/{researcherId}")
-    public void deleteProject(@PathVariable("researcherId") int projectId) {
+    @DeleteMapping("/researchers/projects/{projectId}")
+    public void deleteProject(@PathVariable("projectId") int projectId) {
         pjs.deleteProject(projectId);
     }
 
-    @GetMapping("/researchers/{researcherId}/projects")
-    public List<Researcher> getProjectResearcher(@PathVariable("researcherId") int projectId) {
+    @GetMapping("/projects/{projectId}/researchers")
+    public List<Researcher> getProjectResearcher(@PathVariable("projectId") int projectId) {
         return pjs.getProjectResearcher(projectId);
     }
 }

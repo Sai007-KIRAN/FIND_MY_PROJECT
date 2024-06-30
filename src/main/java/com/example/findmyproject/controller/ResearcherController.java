@@ -12,34 +12,34 @@ public class ResearcherController {
     @Autowired
     private ResearcherJpaService rjs;
 
-    @GetMapping("/researchers/projects")
+    @GetMapping("/researchers")
     public ArrayList<Researcher> getResearcher() {
         return rjs.getResearcher();
     }
 
-    @GetMapping("/researchers/projects/{projectId}")
-    public Researcher getResearcherById(@PathVariable("projectId") int researcherId) {
+    @GetMapping("/researchers/{researcherId}")
+    public Researcher getResearcherById(@PathVariable("researcherId") int researcherId) {
         return rjs.getResearcherById(researcherId);
     }
 
-    @PostMapping("/researchers/projects")
+    @PostMapping("/researchers")
     public Researcher addResearcher(@RequestBody Researcher researcher) {
         return rjs.addResearcher(researcher);
     }
 
-    @PutMapping("/researchers/projects/{projectId}")
-    public Researcher updateResearcher(@PathVariable("projectId") int researcherId,
+    @PutMapping("/researchers/{researcherId}")
+    public Researcher updateResearcher(@PathVariable("researcherId") int researcherId,
             @RequestBody Researcher researcher) {
         return rjs.updateResearcher(researcherId, researcher);
     }
 
-    @DeleteMapping("/researchers/projects/{projectId}")
-    public void deleteResearcher(@PathVariable("projectId") int researcherId) {
+    @DeleteMapping("/researchers/{researcherId}")
+    public void deleteResearcher(@PathVariable("researcherId") int researcherId) {
         rjs.deleteResearcher(researcherId);
     }
 
-    @GetMapping("/projects/{projectId}/researchers")
-    public List<Project> getResearcherProject(@PathVariable("projectId") int researcherId) {
+    @GetMapping("/researchers/{researcherId}/projects")
+    public List<Project> getResearcherProject(@PathVariable("researcherId") int researcherId) {
         return rjs.getResearcherProject(researcherId);
     }
 }
